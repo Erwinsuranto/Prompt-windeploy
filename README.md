@@ -1,6 +1,30 @@
 # Prompt-windeploy
 
 
+
+
+
+
+# 
+```
+Continue implementing Prompt 2 from the current repository state.
+
+Do not restart or regenerate completed work.
+
+Complete every unfinished task from the existing implementation plan until all items are marked done.
+
+Repair any incomplete files, verify the download module works end-to-end, update README.md, validate config/images.json, and ensure all download features are fully implemented.
+
+Do not modify deployment modules or unrelated files.
+
+When finished, provide:
+- All completed tasks
+- Modified files
+- Remaining TODOs (if any)
+- Testing instructions
+- Confirmation that Prompt 2 is fully complete.
+
+```
 # 
 ```
 You are continuing the WinDeploy project. Continue from the existing repository without rewriting completed modules. Preserve the current modular architecture, coding style, logging framework, documentation style, and file structure.
