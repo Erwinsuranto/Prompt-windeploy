@@ -9,6 +9,61 @@
 
 
 
+
+
+
+# 
+```
+Continue from the current repository state.
+
+Do not implement any new features.
+
+Your only task is to repair install.sh until it is production-ready.
+
+Requirements:
+
+- Fix every ShellCheck warning.
+- Fix the malformed IFS assignment.
+- Remove all placeholder comments.
+- Verify every sourced module exists.
+- Verify every function call exists.
+- Verify download.sh integration.
+- Verify exit codes.
+- Verify syntax using bash -n.
+- Verify install.sh is the only remaining blocker.
+
+After repairing install.sh:
+
+Run a complete project audit again.
+
+Check:
+
+- bash -n on every shell script
+- ShellCheck on every script
+- source/import validation
+- images.json validation
+- README consistency
+- download module integration
+- logging integration
+- exit codes
+- install.sh entrypoint
+
+If any issue is found, repair it immediately.
+
+Only stop when the entire repository passes all validation.
+
+Finally print exactly:
+
+WinDeploy Phase 2
+STATUS: PRODUCTION READY
+
+Then provide:
+
+- Modified files
+- Validation results
+- Remaining TODOs (must be NONE)
+
+`
 # Prompt 3: Disk Detection & Safety Validation
 ```
 Audit the entire Download Manager implementation before continuing to the next phase.
