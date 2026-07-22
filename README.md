@@ -5,6 +5,44 @@
 
 
 
+
+
+
+
+# Prompt 3: Disk Detection & Safety Validation
+```
+Audit the entire Download Manager implementation before continuing to the next phase.
+
+Verify:
+
+- ShellCheck passes on every modified shell script.
+- No syntax errors.
+- No broken imports or source statements.
+- All referenced files exist.
+- images.json schema is valid.
+- Mirror failover works correctly.
+- Maintenance mode works correctly.
+- Manual download mode works correctly.
+- Resume download works.
+- SHA256 verification works.
+- Retry logic works.
+- Logging works.
+- Exit codes are correct.
+- README matches the implementation.
+
+If you find any issue, fix it immediately.
+
+Do not implement any new features.
+
+Only audit, repair, test, and report.
+
+When everything passes, print:
+
+"Prompt 2 verified and production-ready."
+
+```
+
+
 # 
 ```
 Continue implementing Prompt 2 from the current repository state.
