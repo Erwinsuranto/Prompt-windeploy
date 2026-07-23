@@ -35,9 +35,274 @@
 
 
 ```
-# 
+# Phase 8
 ```
+You are continuing the WinDeploy project.
 
+Phase 7 has been completed and verified as PRODUCTION READY.
+
+Do not rewrite completed modules.
+
+Do not modify previous phases except for required integration.
+
+Your task is to implement Phase 8: Windows Configuration.
+
+==================================================
+OBJECTIVES
+==================================================
+
+Implement the complete Windows first-boot configuration.
+
+Support both:
+
+- Windows Server 2019
+- Windows Server 2022
+- Windows Server 2025
+- Windows 10
+- Windows 11
+
+==================================================
+AUTOUNATTEND
+==================================================
+
+Generate a complete autounattend.xml.
+
+Support:
+
+- Administrator password
+- Computer name
+- Time zone
+- Keyboard layout
+- Locale
+- Language
+- Organization
+- Owner
+- Product key placeholder
+- Skip OOBE
+- Auto logon (optional)
+- First logon commands
+- RunOnce commands
+
+==================================================
+ADMINISTRATOR
+==================================================
+
+Support:
+
+- Random password
+- User supplied password
+- Password validation
+- Secure password generation
+- Password logging (masked)
+
+==================================================
+NETWORK
+==================================================
+
+Configure:
+
+- DHCP
+- Static IPv4
+- Gateway
+- DNS
+- IPv6 enable/disable
+- MTU
+- Interface detection
+
+==================================================
+REMOTE DESKTOP
+==================================================
+
+Automatically:
+
+Enable RDP
+
+Enable Remote Desktop Firewall Rules
+
+Enable NLA option
+
+Configure RDP service
+
+Verify RDP enabled
+
+==================================================
+VIRTIO
+==================================================
+
+Automatically detect and install:
+
+Storage drivers
+
+Network drivers
+
+Balloon drivers
+
+SCSI drivers
+
+Serial drivers
+
+QEMU guest agent (optional)
+
+==================================================
+SERVICES
+==================================================
+
+Configure:
+
+Remote Desktop
+
+Windows Update
+
+Plug and Play
+
+RPC
+
+Network services
+
+==================================================
+VALIDATION
+==================================================
+
+Verify:
+
+Administrator configured
+
+Network configured
+
+Drivers installed
+
+RDP enabled
+
+Firewall configured
+
+Autounattend valid
+
+==================================================
+DRY RUN
+==================================================
+
+Support dry-run.
+
+Display every action.
+
+Never modify deployed Windows.
+
+==================================================
+ERROR HANDLING
+==================================================
+
+Handle:
+
+Invalid XML
+
+Missing drivers
+
+Missing autounattend
+
+Network failure
+
+Password validation failure
+
+Registry errors
+
+Service configuration errors
+
+Stop safely.
+
+==================================================
+LOGGING
+==================================================
+
+Log:
+
+Autounattend generation
+
+Password generation
+
+Driver installation
+
+Network configuration
+
+RDP configuration
+
+Validation
+
+Errors
+
+Completion
+
+==================================================
+ARCHITECTURE
+==================================================
+
+Suggested modules:
+
+scripts/windows_config.sh
+
+scripts/autounattend.sh
+
+scripts/network_config.sh
+
+scripts/virtio.sh
+
+scripts/rdp.sh
+
+scripts/password.sh
+
+==================================================
+README
+==================================================
+
+Update documentation.
+
+Include:
+
+Autounattend
+
+Drivers
+
+RDP
+
+Networking
+
+Administrator
+
+==================================================
+QUALITY
+==================================================
+
+ShellCheck clean
+
+bash -n clean
+
+No duplicated code
+
+Strict mode:
+
+set -euo pipefail
+
+Use existing logging framework.
+
+==================================================
+FINAL REPORT
+==================================================
+
+Provide:
+
+- Files created
+- Files modified
+- Supported Windows versions
+- Supported VirtIO drivers
+- Validation performed
+- Dry-run demonstration
+- Testing instructions
+- Example output
+
+Finally print exactly:
+
+WinDeploy Phase 8
+
+STATUS: PRODUCTION READY
 
 ```
 # Prompt Phase 7
