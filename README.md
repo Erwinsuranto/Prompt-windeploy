@@ -30,9 +30,295 @@
 
 
 ```
-# 
+# Lanjut Phase 9
 ```
+You are continuing the WinDeploy project.
 
+Phase 8 has been completed and verified as PRODUCTION READY.
+
+Do not rewrite completed modules.
+
+Do not modify previous phases except for integration if absolutely required.
+
+Your task is to implement Phase 9: Recovery, Rollback & Final Verification.
+
+==================================================
+OBJECTIVES
+==================================================
+
+Implement a production-grade recovery, rollback, diagnostics and verification subsystem.
+
+This phase guarantees that every previous phase completed successfully before the installer allows reboot.
+
+==================================================
+FINAL VERIFICATION
+==================================================
+
+Verify every completed phase.
+
+Phase 1
+Foundation
+
+Phase 2
+Download Manager
+
+Phase 3
+Hardware Detection
+
+Phase 4
+Partition Manager
+
+Phase 5
+Filesystem
+
+Phase 6
+Image Deployment
+
+Phase 7
+Boot Configuration
+
+Phase 8
+Windows Configuration
+
+Display PASS / FAIL for every phase.
+
+==================================================
+WINDOWS VALIDATION
+==================================================
+
+Verify:
+
+Windows directory
+
+System32
+
+Program Files
+
+Users
+
+Registry hives
+
+BCD
+
+Boot Manager
+
+EFI files
+
+Drivers
+
+Autounattend.xml
+
+VirtIO drivers
+
+Network configuration
+
+Administrator account
+
+RDP configuration
+
+==================================================
+BOOT VALIDATION
+==================================================
+
+Verify boot configuration.
+
+UEFI
+
+Legacy BIOS
+
+BCD integrity
+
+Boot sector
+
+Boot files
+
+EFI structure
+
+==================================================
+ROLLBACK
+==================================================
+
+If any validation fails:
+
+Stop immediately.
+
+Never reboot.
+
+Display exact failure.
+
+Unmount mounted partitions.
+
+Clean temporary files.
+
+Restore safe installer state.
+
+==================================================
+RECOVERY
+==================================================
+
+Implement recovery helpers.
+
+Support:
+
+Interrupted installation
+
+Corrupted deployment
+
+Broken boot configuration
+
+Missing files
+
+Configuration failures
+
+==================================================
+DIAGNOSTICS
+==================================================
+
+Generate complete diagnostics.
+
+Include:
+
+Hardware
+
+Disk layout
+
+Partition layout
+
+Filesystem
+
+Deployment
+
+Drivers
+
+Boot
+
+Windows configuration
+
+Network
+
+RDP
+
+==================================================
+LOG COLLECTION
+==================================================
+
+Collect logs from every phase.
+
+Generate one consolidated report.
+
+==================================================
+EXPORT REPORT
+==================================================
+
+Generate:
+
+JSON report
+
+Text report
+
+Summary report
+
+Timestamp
+
+Installer version
+
+==================================================
+DRY RUN
+==================================================
+
+Support dry-run.
+
+Perform every validation.
+
+Do not modify anything.
+
+==================================================
+LOGGING
+==================================================
+
+Log every validation.
+
+Log every recovery action.
+
+Log every rollback.
+
+==================================================
+ARCHITECTURE
+==================================================
+
+Suggested modules:
+
+scripts/recovery.sh
+
+scripts/rollback.sh
+
+scripts/final_verify.sh
+
+scripts/report.sh
+
+scripts/diagnostics.sh
+
+==================================================
+README
+==================================================
+
+Update documentation.
+
+Include:
+
+Recovery
+
+Rollback
+
+Verification
+
+Diagnostics
+
+Reports
+
+==================================================
+QUALITY
+==================================================
+
+ShellCheck clean.
+
+bash -n clean.
+
+No duplicated code.
+
+Strict mode.
+
+set -euo pipefail
+
+Use existing logging framework.
+
+==================================================
+FINAL REPORT
+==================================================
+
+Provide:
+
+Files created
+
+Files modified
+
+Recovery features
+
+Rollback features
+
+Verification checklist
+
+Diagnostics generated
+
+Testing instructions
+
+Example terminal output
+
+Finally print exactly:
+
+WinDeploy Phase 9
+
+STATUS: PRODUCTION READY
 
 ```
 # Phase 8
