@@ -11,7 +11,334 @@
 
 
 
+# 
+```
 
+
+```
+
+# Prompt 3 (sekali copy). Fokusnya adalah Hardware Detection & Safety Validation.
+```
+You are continuing the WinDeploy project.
+
+Phase 2 has been completed and verified as PRODUCTION READY.
+
+Do not rewrite existing modules.
+
+Do not modify completed download functionality.
+
+Your task is to implement Phase 3: Hardware Detection & Safety Validation.
+
+This phase MUST NEVER modify disks.
+
+This phase only detects, validates, reports and asks for confirmation.
+
+==================================================
+OBJECTIVES
+==================================================
+
+Create a production-grade hardware detection system before Windows deployment.
+
+Implement only safe read-only operations.
+
+==================================================
+SYSTEM DETECTION
+==================================================
+
+Detect:
+
+- CPU architecture
+- CPU model
+- CPU cores
+- Total RAM
+- Available RAM
+- Virtualization platform
+- Hypervisor
+- BIOS or UEFI
+- Boot mode
+- Secure Boot status if available
+- Disk controller type
+- Network interfaces
+- Internet connectivity
+- Public IP
+- Hostname
+- Linux distribution
+- Kernel version
+
+==================================================
+VIRTUALIZATION DETECTION
+==================================================
+
+Automatically detect:
+
+KVM
+QEMU
+VMware
+VirtualBox
+Hyper-V
+Xen
+OpenVZ
+LXC
+Docker
+Proxmox
+Unknown
+
+If unsupported virtualization is detected display a warning.
+
+==================================================
+DISK DETECTION
+==================================================
+
+Detect every disk.
+
+Display:
+
+Device
+Model
+Vendor
+Interface
+Transport
+Capacity
+Sector Size
+Partition Table
+Filesystem
+Mounted
+Mount Points
+SSD/HDD
+NVMe/SATA/VirtIO
+
+Automatically determine the most likely installation disk.
+
+Never modify anything.
+
+==================================================
+SAFETY VALIDATION
+==================================================
+
+Check:
+
+Running as root
+
+Enough RAM
+
+Enough disk space
+
+Supported CPU architecture
+
+Supported virtualization
+
+Internet available
+
+Download directory writable
+
+Temporary directory writable
+
+Configuration exists
+
+Images.json valid
+
+Download module available
+
+If any validation fails
+
+Display clear reason
+
+Stop safely
+
+==================================================
+INSTALLATION RISK ANALYSIS
+==================================================
+
+Display warnings if:
+
+Multiple disks detected
+
+Windows already exists
+
+Existing Linux installation detected
+
+Unknown partition table
+
+Encrypted disks
+
+RAID
+
+LVM
+
+Mounted installation target
+
+Display confirmation before continuing.
+
+==================================================
+INTERACTIVE SUMMARY
+==================================================
+
+Display a professional summary similar to:
+
+========================================
+
+WinDeploy Hardware Validation
+
+========================================
+
+CPU:
+
+...
+
+RAM:
+
+...
+
+Virtualization:
+
+KVM
+
+Boot:
+
+UEFI
+
+Installation Disk:
+
+/dev/vda
+
+Capacity:
+
+100 GB
+
+Internet:
+
+OK
+
+Images:
+
+OK
+
+Download Module:
+
+OK
+
+Overall Status:
+
+READY
+
+========================================
+
+==================================================
+EXIT STATUS
+==================================================
+
+READY
+
+WARNING
+
+FAILED
+
+Colorize output using existing logger.
+
+==================================================
+LOGGING
+==================================================
+
+Log:
+
+Hardware detection
+
+Disk detection
+
+Virtualization detection
+
+Validation results
+
+Warnings
+
+Errors
+
+Summary
+
+==================================================
+ARCHITECTURE
+==================================================
+
+Use the existing modular architecture.
+
+Create helper modules if needed.
+
+Suggested files:
+
+scripts/hardware.sh
+
+scripts/safety.sh
+
+Do not modify deployment modules.
+
+==================================================
+DO NOT
+==================================================
+
+Do NOT partition disks.
+
+Do NOT format disks.
+
+Do NOT deploy Windows.
+
+Do NOT write bootloader.
+
+Do NOT modify any partition.
+
+Everything in this phase must be read-only.
+
+==================================================
+DOCUMENTATION
+==================================================
+
+Update README.md.
+
+Document:
+
+Hardware Detection
+
+Disk Detection
+
+Safety Validation
+
+Virtualization Support
+
+System Requirements
+
+==================================================
+QUALITY
+==================================================
+
+ShellCheck clean
+
+bash -n clean
+
+No duplicated code
+
+Use existing logging framework
+
+POSIX compatible where possible
+
+==================================================
+FINAL REPORT
+==================================================
+
+When finished provide:
+
+- Files created
+- Files modified
+- Detection features implemented
+- Validation checklist
+- Testing instructions
+- Example terminal output
+
+Finally print exactly:
+
+WinDeploy Phase 3
+
+STATUS: PRODUCTION READY
+
+```
 # 
 ```
 Continue from the current repository state.
