@@ -11,10 +11,329 @@
 
 
 
+
+
+
+
 # 
 ```
 
 
+```
+# Filesystem & Formatting
+```
+
+You are continuing the WinDeploy project.
+
+Phase 4 has been completed and verified as PRODUCTION READY.
+
+Do not rewrite completed modules.
+
+Do not modify the Download Manager, Hardware Detection, or Partition Manager except for integration if absolutely necessary.
+
+Your task is to implement Phase 5: Filesystem & Formatting.
+
+This phase formats only the partitions created during Phase 4.
+
+Never repartition disks in this phase.
+
+==================================================
+OBJECTIVES
+==================================================
+
+Implement a production-grade filesystem formatting subsystem for both UEFI and Legacy BIOS installations.
+
+Support automatic validation before and after formatting.
+
+==================================================
+SUPPORTED FILESYSTEMS
+==================================================
+
+UEFI (GPT)
+
+EFI System Partition
+- FAT32
+
+Microsoft Reserved (MSR)
+- No filesystem
+
+Windows Partition
+- NTFS
+
+--------------------------------------------------
+
+Legacy BIOS (MBR)
+
+System Reserved
+- NTFS
+
+Windows Partition
+- NTFS
+
+==================================================
+SUPPORTED TOOLS
+==================================================
+
+Automatically detect and safely use:
+
+mkfs.fat
+mkfs.vfat
+mkfs.ntfs
+mkntfs
+ntfslabel
+fatlabel
+blkid
+lsblk
+wipefs
+
+Display installation guidance if required tools are missing.
+
+==================================================
+SAFETY VALIDATION
+==================================================
+
+Before formatting verify:
+
+- Running as root
+- Phase 4 completed successfully
+- Partition layout validated
+- Target partitions exist
+- Correct partition count
+- Partitions are not mounted
+- Target disk matches selected installation disk
+- Dry-run mode respected
+- No active formatting process
+
+Abort safely if any validation fails.
+
+==================================================
+FORMATTING
+==================================================
+
+UEFI
+
+Format EFI partition:
+
+FAT32
+
+Label:
+
+SYSTEM
+
+Skip formatting MSR.
+
+Format Windows partition:
+
+NTFS
+
+Label:
+
+Windows
+
+--------------------------------------------------
+
+Legacy BIOS
+
+Format System Reserved:
+
+NTFS
+
+Label:
+
+System
+
+Format Windows partition:
+
+NTFS
+
+Label:
+
+Windows
+
+==================================================
+DRY RUN MODE
+==================================================
+
+Support simulation mode.
+
+When enabled:
+
+Do NOT execute formatting.
+
+Print every command that would be executed.
+
+Display resulting filesystem layout.
+
+==================================================
+POST FORMAT VALIDATION
+==================================================
+
+Verify:
+
+Filesystem created successfully
+
+Filesystem type correct
+
+Partition labels correct
+
+UUID readable
+
+Partitions accessible
+
+Expected size
+
+No formatting errors
+
+==================================================
+ERROR HANDLING
+==================================================
+
+Handle:
+
+Formatting failure
+
+Unsupported filesystem
+
+Read-only device
+
+Permission denied
+
+Disk disconnected
+
+Tool missing
+
+Unexpected command failure
+
+Stop immediately.
+
+Never continue deployment after formatting failure.
+
+==================================================
+ROLLBACK
+==================================================
+
+If validation fails after formatting:
+
+Stop deployment.
+
+Log exact failure.
+
+Do not continue to Windows deployment.
+
+==================================================
+LOGGING
+==================================================
+
+Log:
+
+Formatting started
+
+Filesystem selected
+
+Partition formatted
+
+Partition label applied
+
+Validation passed
+
+Validation failed
+
+Errors
+
+Completion
+
+==================================================
+ARCHITECTURE
+==================================================
+
+Use the existing modular architecture.
+
+Create modules if needed.
+
+Suggested files:
+
+scripts/filesystem.sh
+
+scripts/filesystem_fat32.sh
+
+scripts/filesystem_ntfs.sh
+
+scripts/filesystem_validate.sh
+
+Integrate cleanly with Phase 4.
+
+==================================================
+DO NOT
+==================================================
+
+Do NOT repartition disks.
+
+Do NOT deploy Windows.
+
+Do NOT install bootloader.
+
+Do NOT modify image deployment.
+
+Do NOT change completed modules except for integration.
+
+==================================================
+README
+==================================================
+
+Update documentation.
+
+Include:
+
+Filesystem support
+
+Formatting flow
+
+Partition labels
+
+Dry Run mode
+
+Validation
+
+Recovery behavior
+
+==================================================
+QUALITY
+==================================================
+
+ShellCheck clean.
+
+bash -n clean.
+
+No duplicated code.
+
+Use existing logging framework.
+
+Strict mode:
+
+set -euo pipefail
+
+POSIX compatible where possible.
+
+==================================================
+FINAL REPORT
+==================================================
+
+When finished provide:
+
+- Files created
+- Files modified
+- Supported filesystems
+- Validation performed
+- Safety checks
+- Dry-run demonstration
+- Testing instructions
+- Example terminal output
+
+Finally print exactly:
+
+WinDeploy Phase 5
+
+STATUS: PRODUCTION READY
 ```
 
 # Prompt 3 (sekali copy). Fokusnya adalah Hardware Detection & Safety Validation.
