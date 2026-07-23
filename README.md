@@ -15,10 +15,337 @@
 
 
 
+
 # 
 ```
 
 
+```
+# Prompt Phase 6
+```
+
+You are continuing the WinDeploy project.
+
+Phase 5 has been completed and verified as PRODUCTION READY.
+
+Do not rewrite completed modules.
+
+Do not modify Download Manager, Hardware Detection, Partition Manager, or Filesystem Manager except for required integration.
+
+Your task is to implement Phase 6: Windows Image Deployment.
+
+This phase copies the Windows operating system onto the prepared partition.
+
+Do NOT configure bootloader.
+
+Do NOT configure Windows.
+
+Do NOT modify BCD.
+
+Do NOT enable RDP.
+
+Those belong to later phases.
+
+==================================================
+OBJECTIVES
+==================================================
+
+Implement a production-grade Windows deployment engine.
+
+Support deployment from:
+
+- install.wim
+- install.esd
+- split SWM images
+
+Automatically detect the image type.
+
+==================================================
+SUPPORTED TOOLS
+==================================================
+
+Automatically detect and use:
+
+wimlib-imagex
+
+or
+
+dism (when available)
+
+Prefer wimlib-imagex.
+
+If required tools are missing,
+
+display installation instructions.
+
+==================================================
+IMAGE DETECTION
+==================================================
+
+Automatically detect:
+
+install.wim
+
+install.esd
+
+install.swm
+
+Verify:
+
+Image exists
+
+Readable
+
+Supported
+
+Checksum validated
+
+==================================================
+IMAGE INFORMATION
+==================================================
+
+Display:
+
+Edition
+
+Architecture
+
+Language
+
+Version
+
+Build
+
+Compression
+
+Available indexes
+
+Image size
+
+==================================================
+INDEX SELECTION
+==================================================
+
+If multiple indexes exist:
+
+Display menu:
+
+Windows Server Standard
+
+Windows Server Datacenter
+
+Windows 11 Pro
+
+Windows 11 Enterprise
+
+etc.
+
+Allow automatic or manual selection.
+
+==================================================
+DEPLOYMENT
+==================================================
+
+Apply selected image onto Windows partition.
+
+Show:
+
+Progress
+
+Percentage
+
+Current operation
+
+Estimated remaining time
+
+Speed
+
+==================================================
+VALIDATION
+==================================================
+
+Before deployment verify:
+
+Filesystem ready
+
+Partition exists
+
+Enough free space
+
+Selected image valid
+
+Index valid
+
+Target writable
+
+Abort safely if validation fails.
+
+==================================================
+POST DEPLOYMENT VALIDATION
+==================================================
+
+Verify:
+
+Windows directory exists
+
+Program Files exists
+
+Users exists
+
+Windows/System32 exists
+
+Registry hives exist
+
+Boot directory exists
+
+Expected file count
+
+Image successfully applied
+
+==================================================
+ERROR HANDLING
+==================================================
+
+Handle:
+
+Corrupted WIM
+
+Corrupted ESD
+
+Missing image
+
+Invalid index
+
+Unsupported image
+
+Disk full
+
+Permission denied
+
+Interrupted deployment
+
+Read errors
+
+Write errors
+
+Stop immediately.
+
+Never continue after failure.
+
+==================================================
+ROLLBACK
+==================================================
+
+If deployment fails:
+
+Stop deployment.
+
+Log exact reason.
+
+Never continue into boot configuration.
+
+==================================================
+LOGGING
+==================================================
+
+Log:
+
+Selected image
+
+Selected index
+
+Deployment started
+
+Progress
+
+Validation
+
+Errors
+
+Completion
+
+==================================================
+DRY RUN
+==================================================
+
+Support simulation mode.
+
+Display every command.
+
+Never apply image.
+
+==================================================
+ARCHITECTURE
+==================================================
+
+Use modular architecture.
+
+Suggested modules:
+
+scripts/image.sh
+
+scripts/image_detect.sh
+
+scripts/image_apply.sh
+
+scripts/image_validate.sh
+
+scripts/image_index.sh
+
+==================================================
+README
+==================================================
+
+Update documentation.
+
+Include:
+
+Supported image formats
+
+Index selection
+
+Deployment process
+
+Validation
+
+Recovery
+
+==================================================
+QUALITY
+==================================================
+
+ShellCheck clean.
+
+bash -n clean.
+
+No duplicated code.
+
+Strict mode:
+
+set -euo pipefail
+
+Use existing logging framework.
+
+==================================================
+FINAL REPORT
+==================================================
+
+When finished provide:
+
+- Files created
+- Files modified
+- Supported image formats
+- Supported deployment tools
+- Validation performed
+- Dry-run demonstration
+- Testing instructions
+- Example deployment output
+
+Finally print exactly:
+
+WinDeploy Phase 6
+
+STATUS: PRODUCTION READY
 ```
 # Filesystem & Formatting
 ```
