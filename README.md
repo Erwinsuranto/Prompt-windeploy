@@ -16,10 +16,307 @@
 
 
 
+
+
+
+
 # 
 ```
 
 
+```
+# 
+```
+
+
+```
+# 
+```
+
+
+```
+# 
+```
+
+
+```
+# Prompt Phase 7
+```
+
+You are continuing the WinDeploy project.
+
+Phase 6 has been completed and verified as PRODUCTION READY.
+
+Do not rewrite completed modules.
+
+Do not modify Download Manager, Hardware Detection, Partition Manager, Filesystem Manager, or Image Deployment except for required integration.
+
+Your task is to implement Phase 7: Windows Boot Configuration.
+
+This phase prepares the deployed Windows installation so it can boot correctly on both UEFI and Legacy BIOS systems.
+
+Do NOT configure Windows users.
+
+Do NOT enable RDP.
+
+Do NOT install drivers.
+
+Those belong to later phases.
+
+==================================================
+OBJECTIVES
+==================================================
+
+Implement a production-grade Windows boot configuration subsystem.
+
+Support:
+
+- UEFI
+- Legacy BIOS
+
+Automatically detect boot mode from previous phases.
+
+==================================================
+SUPPORTED TOOLS
+==================================================
+
+Automatically detect and safely use:
+
+bcdboot
+
+bootsect
+
+efibootmgr (Linux)
+
+bcdedit (Windows environment if available)
+
+blkid
+
+lsblk
+
+mount
+
+umount
+
+==================================================
+UEFI SUPPORT
+==================================================
+
+Automatically:
+
+Mount EFI System Partition.
+
+Verify FAT32 filesystem.
+
+Create Microsoft Boot directory.
+
+Copy EFI boot files.
+
+Generate BCD store.
+
+Verify:
+
+EFI/Microsoft/Boot exists.
+
+bootmgfw.efi exists.
+
+BCD exists.
+
+==================================================
+LEGACY BIOS SUPPORT
+==================================================
+
+Configure BIOS boot.
+
+Create System Reserved boot files.
+
+Generate BCD.
+
+Prepare boot sector.
+
+Verify boot files exist.
+
+==================================================
+BOOT VALIDATION
+==================================================
+
+Verify:
+
+BCD exists.
+
+Boot manager exists.
+
+EFI boot files exist.
+
+Correct partition selected.
+
+Windows directory present.
+
+System32 present.
+
+Boot directory valid.
+
+Architecture compatible.
+
+==================================================
+AUTO DETECTION
+==================================================
+
+Automatically detect:
+
+Windows partition.
+
+EFI partition.
+
+System Reserved partition.
+
+Boot mode.
+
+Disk layout.
+
+==================================================
+ERROR HANDLING
+==================================================
+
+Handle:
+
+Missing EFI partition.
+
+Missing boot files.
+
+Invalid BCD.
+
+Wrong partition.
+
+Mount failure.
+
+Copy failure.
+
+Permission denied.
+
+Disk errors.
+
+Stop immediately.
+
+Never continue after boot configuration failure.
+
+==================================================
+ROLLBACK
+==================================================
+
+If boot configuration fails:
+
+Unmount every mounted partition.
+
+Restore clean state.
+
+Log exact reason.
+
+Do not continue.
+
+==================================================
+DRY RUN
+==================================================
+
+Support dry-run mode.
+
+Print every command.
+
+Never modify boot files.
+
+==================================================
+LOGGING
+==================================================
+
+Log:
+
+Boot mode.
+
+Selected partitions.
+
+Mounted partitions.
+
+Boot files copied.
+
+BCD generated.
+
+Validation.
+
+Errors.
+
+Completion.
+
+==================================================
+ARCHITECTURE
+==================================================
+
+Use modular architecture.
+
+Suggested modules:
+
+scripts/boot_config.sh
+
+scripts/boot_uefi.sh
+
+scripts/boot_bios.sh
+
+scripts/boot_validate.sh
+
+==================================================
+README
+==================================================
+
+Update documentation.
+
+Include:
+
+UEFI boot
+
+Legacy BIOS boot
+
+BCD generation
+
+Boot validation
+
+Recovery
+
+==================================================
+QUALITY
+==================================================
+
+ShellCheck clean.
+
+bash -n clean.
+
+No duplicated code.
+
+Strict mode:
+
+set -euo pipefail
+
+Use existing logging framework.
+
+POSIX compatible where possible.
+
+==================================================
+FINAL REPORT
+==================================================
+
+When finished provide:
+
+- Files created
+- Files modified
+- Supported boot modes
+- Validation performed
+- Dry-run demonstration
+- Testing instructions
+- Example terminal output
+
+Finally print exactly:
+
+WinDeploy Phase 7
+
+STATUS: PRODUCTION READY
 ```
 # Prompt Phase 6
 ```
