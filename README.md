@@ -20,10 +20,33 @@
 
 
 
+
+
+
 # 
 ```
 
 
+```
+# 
+```
+
+
+```
+# 
+```
+
+
+```
+# 
+```
+
+
+```
+# 
+```
+
+Re-verify every reported stub before making changes. For each function reported as a stub, determine whether it is actually unimplemented or whether the implementation exists elsewhere. Produce a table with: file, function, status (Real Stub / Implemented / Wrapper / False Positive), and evidence (line numbers). Do not modify any code yet.
 ```
 # 
 ```
