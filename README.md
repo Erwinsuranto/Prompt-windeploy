@@ -27,7 +27,24 @@
 ```
 # 
 ```
+Audit the interactive image selection in install.sh.
 
+There is a regression where selecting menu option 6 (Windows 11 Pro) refreshes the menu instead of continuing.
+
+Tasks:
+1. Trace the execution after menu option 6 is selected.
+2. Verify menu_prompt() returns ONLY the selected value on stdout.
+3. Ensure prompts are written to stderr only.
+4. Verify the selected image_id is preserved after command substitution.
+5. Check every case/esac branch handling the selected option.
+6. Add temporary debug logs showing:
+   - selected option
+   - selected image_id
+   - selected WIM index
+7. Remove the debug logs after fixing.
+8. Run bash -n and execute the dry-run to confirm the installer continues to ISO mounting instead of redisplaying the menu.
+
+Do not rewrite unrelated code. Fix only the root cause.
 
 ```
 # Lanjut Phase 9
