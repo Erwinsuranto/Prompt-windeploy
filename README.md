@@ -27,6 +27,27 @@
 ```
 # 
 ```
+Perform a full repository audit before making any code changes.
+
+Goals:
+1. Find all compile, syntax, and runtime issues.
+2. Detect incomplete implementations, TODOs, FIXMEs, placeholders, and dead code.
+3. Check for broken logic in the Windows deployment pipeline.
+4. Verify menu flow, image selection, WIM parsing, partitioning, bootloader installation, and finish stage.
+5. Check shell scripts with bash -n and ShellCheck.
+6. Look for incorrect variable usage, quoting issues, set -e failures, arithmetic bugs, command substitution problems, and missing dependencies.
+7. Verify config files are consistent with the code.
+8. Check GitHub Actions/workflows for failing steps.
+9. Produce a report grouped by:
+   - Critical (must fix)
+   - High
+   - Medium
+   - Low
+10. Do NOT modify any files yet. Only report the problems with file names and line numbers.
+
+```
+# 
+```
 Audit the interactive image selection in install.sh.
 
 There is a regression where selecting menu option 6 (Windows 11 Pro) refreshes the menu instead of continuing.
