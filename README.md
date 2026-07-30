@@ -40,7 +40,15 @@
 ```
 # 
 ```
+Based on the repository audit, create an implementation plan before modifying any code.
 
+Requirements:
+1. Group all 15 real stubs by dependency order.
+2. Identify which stubs block other components.
+3. Produce an implementation order from highest to lowest priority.
+4. Estimate complexity for each stub.
+5. Do NOT modify any files yet.
+6. The goal is a fully working Windows deployment pipeline.
 
 ```
 # 
