@@ -32,7 +32,24 @@
 ```
 # 
 ```
+The pipeline ordering issue is resolved.
 
+Now start implementing the first real functional module.
+
+Target:
+scripts/disk.sh
+
+Requirements:
+1. Replace disk_apply_gpt() stub with a real implementation.
+2. Replace disk_apply_mbr() stub with a real implementation.
+3. Support a safe dry-run mode that performs validation only and never modifies disks.
+4. Clearly separate dry-run logic from destructive execution.
+5. Add robust error handling and rollback where possible.
+6. Keep the implementation modular and reusable.
+7. Run bash -n and ShellCheck after implementation.
+8. Report every modified file and explain each change.
+
+Do not implement any other module yet.
 
 ```
 # 
