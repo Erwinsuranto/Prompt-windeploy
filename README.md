@@ -42,7 +42,15 @@
 ```
 # 
 ```
+Verify the Stage 6 ↔ Stage 8 dependency before changing the pipeline.
 
+Tasks:
+1. Trace every use of WINDEPLOY_NET_* variables.
+2. Verify whether deploy_stage_autounattend() actually requires those variables.
+3. Show the complete call chain with file names and line numbers.
+4. If Stage 8 only generates data, determine whether it can safely run before Stage 6.
+5. If reordering is required, update only the pipeline order without changing stage implementations.
+6. Run the existing self-tests and dry-run to ensure no new dependency cycles are introduced.
 
 ```
 # 
