@@ -37,7 +37,39 @@
 ```
 # 
 ```
+You have already completed the dependency trace.
 
+Now implement the fix.
+
+Requirements:
+
+1. Confirm whether Stage 6 (windeploy_deploy) depends on data produced by Stage 8 (windeploy_configure_network).
+
+2. If confirmed:
+   - Move the network configuration stage before deploy.
+   - Preserve the existing stage numbering/comments where practical, but ensure execution order is correct.
+   - Do NOT change the implementation of deploy.sh or network.sh unless absolutely necessary.
+
+3. Verify that deploy_stage_autounattend() receives all required WINDEPLOY_NET_* variables before execution.
+
+4. Check for any new dependency cycles or ordering regressions.
+
+5. Run:
+   - bash -n on every shell script
+   - ShellCheck (if available)
+   - Existing self-tests
+   - Dry-run
+
+6. Produce a report containing:
+   - Old execution order
+   - New execution order
+   - Why the change was required
+   - Files modified
+   - Test results
+
+7. Do not make unrelated refactoring.
+
+If the dependency is NOT real, explain why and leave the pipeline unchanged.
 
 ```
 # 
