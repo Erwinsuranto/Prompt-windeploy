@@ -20,9 +20,6 @@
 
 
 
-
-
-
 # 
 ```
 
@@ -36,6 +33,21 @@
 # 
 ```
 
+
+```
+# 
+```
+
+
+```
+# 
+```
+
+
+```
+# 
+```
+Audit install.sh main() execution flow. Identify which stages are currently disabled, commented out, or bypassed. Explain why they are disabled and whether they should remain disabled until the corresponding implementations are complete. Do not modify any code yet.
 
 ```
 # 
